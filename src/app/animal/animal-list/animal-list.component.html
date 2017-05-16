@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let animal of animals">
+    <app-animal-row [currentAnimal]="animal" (showMessage)="listMessage()"></app-animal-row>
+  </li>
+</ul>
+
+<p *ngIf="active">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates tempore quibusdam provident ex mollitia quidem, molestias,
+  odio ad aperiam, reprehenderit officia assumenda ipsum ea! Ipsa reprehenderit libero, numquam nobis sed!
+</p>
