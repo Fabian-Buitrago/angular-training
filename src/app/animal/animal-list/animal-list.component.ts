@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Animal } from "app/shared/interfaces/animal";
+import { AnimalService } from "app/core/services/animal.service";
 
 @Component({
   selector: 'app-animal-list',
@@ -6,18 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./animal-list.component.css']
 })
 export class AnimalListComponent implements OnInit {
-  public animals: Array<object> = [
-    { id: 1, name: 'Horse' },
-    { id: 2, name: 'Bee' },
-    { id: 3, name: 'Spider' },
-    { id: 4, name: 'Crab' }
-  ];
-
+  public animals: Animal[];
   public active: boolean = false;
 
-  constructor() { }
+  constructor(private animalService: AnimalService) { }
 
   ngOnInit() {
+    this.animals = this.animalService.getAnimals()
   }
 
   listMessage() {
